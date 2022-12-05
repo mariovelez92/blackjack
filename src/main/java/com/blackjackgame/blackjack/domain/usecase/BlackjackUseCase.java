@@ -2,6 +2,7 @@ package com.blackjackgame.blackjack.domain.usecase;
 
 import com.blackjackgame.blackjack.domain.api.BlackjackServicePort;
 import com.blackjackgame.blackjack.domain.model.Card;
+import com.blackjackgame.blackjack.domain.response.HitCardResponse;
 import com.blackjackgame.blackjack.domain.response.StartGameResponse;
 
 import java.util.ArrayList;
@@ -18,6 +19,11 @@ public class BlackjackUseCase implements BlackjackServicePort {
         startGameResponse.setPlayerHand(playerHand);
         startGameResponse.setCroupierHand(croupierHand);
         return startGameResponse;
+    }
+
+    @Override
+    public HitCardResponse hitCard() {
+        return new HitCardResponse(new Card());
     }
 
     public List<Card> createHand() {

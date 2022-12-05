@@ -37,7 +37,7 @@ public class Card {
         card.append(numberPool.charAt(randomPick));
 
         String suitPool = "SHCD";
-        randomPick = random.nextInt(suitPool.length()+1);
+        randomPick = random.nextInt(suitPool.length());
         card.append(suitPool.charAt(randomPick));
         return card.toString();
     }
