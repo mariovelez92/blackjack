@@ -1,0 +1,75 @@
+{
+	"info": {
+		"_postman_id": "13841b73-86e9-46d2-9414-3f4fd5c9d854",
+		"name": "Blackjack",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "2333459"
+	},
+	"item": [
+		{
+			"name": "Start Game",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8090/blackjack",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"blackjack"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Hit Card",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"caller\" : \"player\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8090/blackjack/hit",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"blackjack",
+						"hit"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Finish round",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8090/blackjack/finish",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"blackjack",
+						"finish"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
