@@ -1,6 +1,7 @@
 package com.blackjackgame.blackjack.application.configuration;
 
 import com.blackjackgame.blackjack.domain.api.BlackjackServicePort;
+import com.blackjackgame.blackjack.domain.model.GameMaster;
 import com.blackjackgame.blackjack.domain.usecase.BlackjackUseCase;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -9,6 +10,11 @@ import org.springframework.context.annotation.Configuration;
 public class BeanConfiguration {
     @Bean
     public BlackjackServicePort blackjackServicePort() {
-        return new BlackjackUseCase();
+        return new BlackjackUseCase(gameMaster());
+    }
+
+    @Bean
+    GameMaster gameMaster() {
+        return new GameMaster();
     }
 }
