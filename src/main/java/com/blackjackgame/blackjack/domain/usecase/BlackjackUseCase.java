@@ -1,6 +1,7 @@
 package com.blackjackgame.blackjack.domain.usecase;
 
 import com.blackjackgame.blackjack.domain.api.BlackjackServicePort;
+import com.blackjackgame.blackjack.domain.exception.NoMoreCardsAllowedException;
 import com.blackjackgame.blackjack.domain.model.Card;
 import com.blackjackgame.blackjack.domain.model.GameMaster;
 import com.blackjackgame.blackjack.domain.request.HitCardRequest;
@@ -36,6 +37,10 @@ public class BlackjackUseCase implements BlackjackServicePort {
 
     @Override
     public HitCardResponse hitCard(HitCardRequest hitCardRequest) {
+        if ((hitCardRequest.getCaller().equals("player") && gameMaster.getPlayerPoints() > 21) ||
+                (hitCardRequest.getCaller().equals("croupier") && gameMaster.getCroupierPoints() > 17)) {
+            throw new NoMoreCardsAllowedException();
+        }
         Card card = new Card();
         gameMaster.addPoints(hitCardRequest.getCaller(), card);
         int handValue = gameMaster.getHandValue(hitCardRequest.getCaller());
